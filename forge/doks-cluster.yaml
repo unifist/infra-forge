@@ -1,0 +1,19 @@
+description: Creates a DOKS Cluster
+input:
+  craft: cluster
+  fields:
+  - name: cluster
+    description: name of the cluster
+    validation: ^[a-z][a-z0-9\-]{1,46}$
+    required: true
+output:
+  code:
+  - github:
+      repo: "unifist/platform"
+      prefix: "{{ ticket }}"
+    change:
+    - github:
+        repo: unifist/infra-forge
+      content:
+      - source: cluster/
+        destination: "clusters/{{ cluster }}/"
