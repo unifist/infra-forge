@@ -22,3 +22,9 @@ output:
       content:
       - source: pillar/do
         destination: "unums/{{ unum }}/pillars/argocd"
+    - github:
+        repo: unum-apps/ledger
+        branch: 0.1.2
+      content:
+      - source: app/do
+        destination: "unums/{{ unum }}/apps/ledger"
