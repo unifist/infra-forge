@@ -1,6 +1,7 @@
-CLUSTER={{ cluster }}
+CLUSTER="do-{{ unum }}-unum"
+DATABASE="do-{{ unum }}-unum"
 
-.PHONY: tfenv init install context uninstall
+.PHONY: tfenv init install context connect uninstall
 
 tfenv:
 	tfenv use 1.10.5
@@ -13,6 +14,9 @@ install: init
 
 context:
 	doctl kubernetes cluster kubeconfig save ${CLUSTER} --alias ${CLUSTER}
+
+connect:
+	doctl databases connection ${DATABASE}
 
 uninstall: init
 	terraform destroy
