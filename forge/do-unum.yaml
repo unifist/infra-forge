@@ -1,0 +1,24 @@
+description: Creates an Unum in DigitalOcean
+input:
+  craft: unum
+  fields:
+  - name: unum
+    description: name of the Unum
+    validation: ^[a-z][a-z0-9\-]{1,32}$
+    required: true
+output:
+  code:
+  - github:
+      repo: "unifist/platform"
+    change:
+    - github:
+        repo: unifist/infra-forge
+      content:
+      - source: unum/do
+        destination: "unums/{{ unum }}/do"
+    - github:
+        repo: unum-pillars/argocd
+        branch: 0.1.3
+      content:
+      - source: pillar/do
+        destination: "unums/{{ unum }}/pillars/argocd"
