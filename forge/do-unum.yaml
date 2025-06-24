@@ -24,7 +24,25 @@ output:
         destination: "unums/{{ unum }}/pillars/argocd"
     - github:
         repo: unum-apps/ledger
-        branch: 0.1.2
+        branch: 0.1.4rc1
       content:
       - source: app/do
         destination: "unums/{{ unum }}/apps/ledger"
+    - github:
+        repo: unum-origins/discord
+        branch: 0.1.1rc1
+      content:
+      - source: origin/do
+        destination: "unums/{{ unum }}/origins/discord"
+    - github:
+        repo: unum-apps/feelz
+        branch: 0.1.0rc1
+      content:
+      - source: app/do
+        destination: "unums/{{ unum }}/apps/feelz"
+    - github:
+        repo: unum-apps/ayaye
+        branch: 0.1.0rc1
+      content:
+      - source: app/do
+        destination: "unums/{{ unum }}/apps/ayaye"

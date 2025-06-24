@@ -2,7 +2,7 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
   name   = "do-{{ unum }}-unum"
   region = "nyc3"
   # Grab the latest version slug from `doctl kubernetes options versions`
-  version = "1.31.5-do.0"
+  version = "1.31.9-do.0"
 
   node_pool {
     name       = "worker-pool"
